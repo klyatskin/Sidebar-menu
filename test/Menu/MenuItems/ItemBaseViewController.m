@@ -14,14 +14,18 @@
 
 @implementation ItemBaseViewController
 
+
+- (NSString *)stringInMenu {
+    return @"To be overwritten";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.StringInMenu = @"To be overwritten";
 }
 
 
 - (void)dealloc {
-    NSLog(@" %@ (%@) has been deallocated.", self, self.StringInMenu);
+    NSLog(@" %@ (%@) has been deallocated.", self, self.stringInMenu);
 }
 
 

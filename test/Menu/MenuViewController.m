@@ -10,13 +10,13 @@
 
 #import "ItemBaseViewController.h"
 
-//#import "Item1ViewController.h"
-//#import "Item2ViewController.h"
 
 @interface MenuViewController () {
     CGFloat _menuWidth;
+    NSUInteger _indexSelected;
 }
 @property (weak, nonatomic) IBOutlet UIView *viewMask;
+@property (weak, nonatomic) IBOutlet UIStackView *viewStack;
 
 @property (weak, nonatomic) IBOutlet UIView *viewItems;
 @property (weak, nonatomic) IBOutlet UIView *viewContainer;
@@ -29,24 +29,49 @@
 @implementation MenuViewController
 
 - (NSArray <NSString *> *)menuItems {
-    return @[ @"Item1ViewController",
-              @"Item2ViewController",
-            ];
+    return @[
+        @"Item3ViewController",   // Logout
+        @"Item1ViewController",
+        @"Item2ViewController",
+    ];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.viewItems.clipsToBounds = YES;
+    _menuWidth = self.viewItems.bounds.size.width;
     [self setupMenuItemsList];
     [self setupMask];
-    [self addMenuItemControllerByClassName:[self menuItems][0]];
+    // load 1st controller
+    _indexSelected = 0;
+    [self addMenuItemControllerByClassName:[self menuItems][_indexSelected]];
 }
 
 
 #pragma mark - Setup
 
 - (void)setupMenuItemsList {
-    self.viewItems.clipsToBounds = YES;
-    _menuWidth = self.viewItems.bounds.size.width;
+    
+    NSUInteger index = 0;
+    CGRect frame = self.viewStack.bounds;
+    frame.size.height = 40;
+    
+    for ( NSString *className in [self menuItems]) {
+       
+        Class class = NSClassFromString(className);
+        ItemBaseViewController *vc = [[class alloc] init];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button addTarget:self
+                   action:@selector(btnTapped:)
+         forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:vc.stringInMenu forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor lightGrayColor];
+        button.frame = frame;
+        button.tag = index;
+        [self.viewStack insertArrangedSubview:button atIndex:index++];
+    }
+
+
 }
 
 - (void)setupMask {
@@ -61,14 +86,20 @@
 
 #pragma mark - Actions
 
-- (IBAction)btnTapped:(id)button {
-    NSLog(@"Item choosed: %@", [button titleForState:UIControlStateNormal]);
-    [self addMenuItemControllerByClassName:[self menuItems][1]];
+- (IBAction)btnTapped:(UIButton *)button {
+//    NSLog(@"Item choosed: %@, tag: %ld", [button titleForState:UIControlStateNormal], (long)button.tag);
+    if (button.tag == _indexSelected) {
+        [self switchMenu];
+        return;
+    }
+    _indexSelected = button.tag;
+    [self addMenuItemControllerByClassName:[self menuItems][_indexSelected]];
 }
 
 
 - (IBAction)menuButtonTapped:(id)button {
     [self switchMenu];
+
 }
 
 
@@ -77,11 +108,18 @@
 
 - (void)switchMenu {
     CGFloat width = (self.viewItems.bounds.size.width > 0) ? 0 : _menuWidth;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.constraintMenuWidth.constant = width;
-        self.viewMask.alpha = width > 0 ? 0.3 : 0.0;
-        [self.view layoutIfNeeded];
-    }];
+    [UIView animateWithDuration:0.3
+                          delay:0
+         usingSpringWithDamping:0.7
+          initialSpringVelocity:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.constraintMenuWidth.constant = width;
+                         self.viewMask.alpha = width > 0 ? 0.3 : 0.0;
+                         [self.view layoutIfNeeded];
+                     } completion:^(BOOL finished) {
+                     }
+     ];
 }
 
 #pragma mark - Child controllers
@@ -94,7 +132,6 @@
     Class class = NSClassFromString(className);
     UIViewController *vc = [[class alloc] initWithNibName:NSStringFromClass(class) bundle:[NSBundle bundleForClass:class]];
     vc.view.frame = self.viewContainer.bounds;
-//    vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self addChildViewController:vc];
     [self.viewContainer addSubview:vc.view];
     [vc didMoveToParentViewController:self];
@@ -108,5 +145,10 @@
     [self.childVC.view removeFromSuperview];
     [self.childVC removeFromParentViewController];
 }
+
+
+//- (void)dealloc {
+//    NSLog(@"MenuViewController deallocated.");
+//}
 
 @end

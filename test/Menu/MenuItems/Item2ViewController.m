@@ -14,9 +14,12 @@
 
 @implementation Item2ViewController
 
+- (NSString *)stringInMenu {
+    return @"Item 2";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.StringInMenu = @"Item 2";
 }
 
 - (IBAction)btnTapped:(UIButton *)button {

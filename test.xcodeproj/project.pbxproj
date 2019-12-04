@@ -19,6 +19,8 @@
 		D18E13C223961E7000C6F837 /* Item2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18E13C023961E7000C6F837 /* Item2ViewController.xib */; };
 		D19080CC2396B57C009F2F55 /* LoginAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = D19080CA2396B57B009F2F55 /* LoginAnimator.m */; };
 		D19080CF2396BD76009F2F55 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D19080CE2396BD76009F2F55 /* LoginViewController.m */; };
+		D19080D32396D88B009F2F55 /* Item3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D19080D12396D88B009F2F55 /* Item3ViewController.m */; };
+		D19080D42396D88B009F2F55 /* Item3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D19080D22396D88B009F2F55 /* Item3ViewController.xib */; };
 		D190F872239693D000F8E567 /* Item1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D190F86F239693D000F8E567 /* Item1ViewController.m */; };
 		D190F873239693D000F8E567 /* Item1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D190F870239693D000F8E567 /* Item1ViewController.xib */; };
 		D190F8762396946800F8E567 /* ItemBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D190F8752396946800F8E567 /* ItemBaseViewController.m */; };
@@ -46,6 +48,9 @@
 		D19080CB2396B57B009F2F55 /* LoginAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAnimator.h; sourceTree = "<group>"; };
 		D19080CD2396BD76009F2F55 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D19080CE2396BD76009F2F55 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D19080D02396D88B009F2F55 /* Item3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Item3ViewController.h; sourceTree = "<group>"; };
+		D19080D12396D88B009F2F55 /* Item3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Item3ViewController.m; sourceTree = "<group>"; };
+		D19080D22396D88B009F2F55 /* Item3ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Item3ViewController.xib; sourceTree = "<group>"; };
 		D190F86F239693D000F8E567 /* Item1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item1ViewController.m; sourceTree = "<group>"; };
 		D190F870239693D000F8E567 /* Item1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Item1ViewController.xib; sourceTree = "<group>"; };
 		D190F871239693D000F8E567 /* Item1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item1ViewController.h; sourceTree = "<group>"; };
@@ -88,15 +93,31 @@
 				D18E13962396091700C6F837 /* AppDelegate.m */,
 				D18E13982396091700C6F837 /* SceneDelegate.h */,
 				D18E13992396091700C6F837 /* SceneDelegate.m */,
-				D19080CB2396B57B009F2F55 /* LoginAnimator.h */,
-				D19080CA2396B57B009F2F55 /* LoginAnimator.m */,
-				D19080CD2396BD76009F2F55 /* LoginViewController.h */,
-				D19080CE2396BD76009F2F55 /* LoginViewController.m */,
+				D19080D72396E104009F2F55 /* Login */,
+				D19080D52396E0B4009F2F55 /* Menu */,
+				D18E13A12396091A00C6F837 /* Assets.xcassets */,
 				D18E139E2396091700C6F837 /* Main.storyboard */,
+				D18E13A32396091A00C6F837 /* LaunchScreen.storyboard */,
+				D18E13A62396091A00C6F837 /* Info.plist */,
+				D18E13A72396091A00C6F837 /* main.m */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		D19080D52396E0B4009F2F55 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				D19080D62396E0C9009F2F55 /* MenuItems */,
+				D18E13B0239609E700C6F837 /* MenuViewController.xib */,
 				D18E13AE239609E700C6F837 /* MenuViewController.h */,
 				D18E13AF239609E700C6F837 /* MenuViewController.m */,
-				D18E13B0239609E700C6F837 /* MenuViewController.xib */,
-				D18E13A12396091A00C6F837 /* Assets.xcassets */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		D19080D62396E0C9009F2F55 /* MenuItems */ = {
+			isa = PBXGroup;
+			children = (
 				D190F8742396946800F8E567 /* ItemBaseViewController.h */,
 				D190F8752396946800F8E567 /* ItemBaseViewController.m */,
 				D190F871239693D000F8E567 /* Item1ViewController.h */,
@@ -105,11 +126,22 @@
 				D18E13BE23961E7000C6F837 /* Item2ViewController.h */,
 				D18E13BF23961E7000C6F837 /* Item2ViewController.m */,
 				D18E13C023961E7000C6F837 /* Item2ViewController.xib */,
-				D18E13A32396091A00C6F837 /* LaunchScreen.storyboard */,
-				D18E13A62396091A00C6F837 /* Info.plist */,
-				D18E13A72396091A00C6F837 /* main.m */,
+				D19080D02396D88B009F2F55 /* Item3ViewController.h */,
+				D19080D12396D88B009F2F55 /* Item3ViewController.m */,
+				D19080D22396D88B009F2F55 /* Item3ViewController.xib */,
 			);
-			path = test;
+			path = MenuItems;
+			sourceTree = "<group>";
+		};
+		D19080D72396E104009F2F55 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D19080CB2396B57B009F2F55 /* LoginAnimator.h */,
+				D19080CA2396B57B009F2F55 /* LoginAnimator.m */,
+				D19080CD2396BD76009F2F55 /* LoginViewController.h */,
+				D19080CE2396BD76009F2F55 /* LoginViewController.m */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D18E13C223961E7000C6F837 /* Item2ViewController.xib in Resources */,
+				D19080D42396D88B009F2F55 /* Item3ViewController.xib in Resources */,
 				D18E13A52396091A00C6F837 /* LaunchScreen.storyboard in Resources */,
 				D18E13A22396091A00C6F837 /* Assets.xcassets in Resources */,
 				D190F873239693D000F8E567 /* Item1ViewController.xib in Resources */,
@@ -188,6 +221,7 @@
 				D190F872239693D000F8E567 /* Item1ViewController.m in Sources */,
 				D19080CC2396B57C009F2F55 /* LoginAnimator.m in Sources */,
 				D18E13972396091700C6F837 /* AppDelegate.m in Sources */,
+				D19080D32396D88B009F2F55 /* Item3ViewController.m in Sources */,
 				D19080CF2396BD76009F2F55 /* LoginViewController.m in Sources */,
 				D18E13A82396091A00C6F837 /* main.m in Sources */,
 				D190F8762396946800F8E567 /* ItemBaseViewController.m in Sources */,

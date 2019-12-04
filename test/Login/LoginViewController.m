@@ -13,6 +13,7 @@
 @interface LoginViewController ()
 
 @property (strong,nonatomic) LoginAnimator *animator;
+
 @end
 
 @implementation LoginViewController
@@ -31,6 +32,8 @@
     [self presentViewController:mvc animated:YES completion:nil];
 }
 
-
+- (void)dealloc {
+    NSLog(@"❌ - LoginViewController deallocated.");
+}
 
 @end
