@@ -14,7 +14,7 @@
 
 @implementation Item2ViewController
 
-- (NSString *)stringInMenu {
++ (NSString *)stringInMenu {
     return @"Item 2";
 }
 

@@ -15,7 +15,7 @@
 @implementation ItemBaseViewController
 
 
-- (NSString *)stringInMenu {
++ (NSString *)stringInMenu {
     return @"To be overwritten";
 }
 
@@ -25,7 +25,7 @@
 
 
 - (void)dealloc {
-//    NSLog(@" %@ (%@) has been deallocated.", self, self.stringInMenu);
+    NSLog(@" %@ (%@) has been deallocated.", self, self.class.stringInMenu);
 }
 
 

@@ -59,12 +59,11 @@
     for ( NSString *className in [self menuItems]) {
        
         Class class = NSClassFromString(className);
-        ItemBaseViewController *vc = [[class alloc] init];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self
                    action:@selector(btnTapped:)
          forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:vc.stringInMenu forState:UIControlStateNormal];
+        [button setTitle:[class stringInMenu] forState:UIControlStateNormal];
         button.backgroundColor = [UIColor lightGrayColor];
         button.frame = frame;
         button.tag = index;

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ItemBaseViewController : UIViewController
 
-- (NSString *)stringInMenu;
++ (NSString *)stringInMenu;
 
 @end
 

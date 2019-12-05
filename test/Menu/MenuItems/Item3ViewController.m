@@ -15,7 +15,7 @@
 @implementation Item3ViewController
 
 
-- (NSString *)stringInMenu {
++ (NSString *)stringInMenu {
     return @"Logout";
 }
 
