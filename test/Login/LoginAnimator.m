@@ -39,9 +39,7 @@
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-
-    UIViewController* destination = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    Boolean presented = [destination isBeingPresented];
+    Boolean presented = [toVC isBeingPresented];
     if (presented)
         [self animatePresentingInContext:transitionContext toVC:toVC fromVC:fromVC];
     else
