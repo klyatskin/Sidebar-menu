@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginAnimator <UIViewControllerTransitioningDelegate>: UIViewController
+@interface LoginAnimator <UIViewControllerTransitioningDelegate>: NSObject
 
 
 @end
