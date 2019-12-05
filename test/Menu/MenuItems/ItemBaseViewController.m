@@ -25,7 +25,7 @@
 
 
 - (void)dealloc {
-    NSLog(@" %@ (%@) has been deallocated.", self, self.stringInMenu);
+//    NSLog(@" %@ (%@) has been deallocated.", self, self.stringInMenu);
 }
 
 

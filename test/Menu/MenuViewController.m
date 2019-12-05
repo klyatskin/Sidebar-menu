@@ -147,8 +147,8 @@
 }
 
 
-//- (void)dealloc {
+- (void)dealloc {
 //    NSLog(@"MenuViewController deallocated.");
-//}
+}
 
 @end
